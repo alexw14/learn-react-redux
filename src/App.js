@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Radium, { StyleRoot } from 'radium';
 import './App.css';
 import Person from './Person/Person';
 
@@ -18,7 +19,7 @@ class App extends Component {
       return p.id === id;
     });
     // create new object
-    let person = {...this.state.persons[personIndex]};
+    let person = { ...this.state.persons[personIndex] };
     // alternatively, let person = Object.assign({}, this.state.persons[personIndex]);
     // assign name to the target value
     person.name = event.target.value;
@@ -26,7 +27,7 @@ class App extends Component {
     let persons = [...this.state.persons];
     // assign the new person object to the corresponding index in array
     persons[personIndex] = person;
-    this.setState({persons: persons})
+    this.setState({ persons: persons })
   }
 
   togglePersonsHandler = () => {
@@ -52,7 +53,12 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      // with radium added, you can add pseudo classes
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     };
 
     // handling dynamic content the javascript way
@@ -75,9 +81,14 @@ class App extends Component {
       )
       // change color of button to red when showPersons = true
       style.backgroundColor = 'red';
+      // with radium
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
     }
 
-    // class name as declared in App.css
+    // class names as declared in App.css
     // let classes = ['red', 'bold'].join(' '); // => 'red bold'
 
     let classes = [];
@@ -89,12 +100,14 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        <p className={classes.join(' ')}>Watch me dynamically change!</p>
-        <button style={style} onClick={this.togglePersonsHandler}>Toggle</button>
-        {persons}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1>Hi, I'm a React App</h1>
+          <p className={classes.join(' ')}>Watch me dynamically change!</p>
+          <button style={style} onClick={this.togglePersonsHandler}>Toggle</button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
 
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi I am a React App!!!'));
@@ -106,4 +119,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
