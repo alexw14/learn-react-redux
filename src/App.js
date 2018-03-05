@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Radium, { StyleRoot } from 'radium';
 import './App.css';
 import Person from './Person/Person';
 
@@ -54,11 +53,6 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer',
-      // with radium added, you can add pseudo classes
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
     };
 
     // handling dynamic content the javascript way
@@ -81,11 +75,6 @@ class App extends Component {
       )
       // change color of button to red when showPersons = true
       style.backgroundColor = 'red';
-      // with radium
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
     }
 
     // class names as declared in App.css
@@ -100,14 +89,12 @@ class App extends Component {
     }
 
     return (
-      <StyleRoot>
         <div className="App">
           <h1>Hi, I'm a React App</h1>
           <p className={classes.join(' ')}>Watch me dynamically change!</p>
           <button style={style} onClick={this.togglePersonsHandler}>Toggle</button>
           {persons}
         </div>
-      </StyleRoot>
     );
 
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi I am a React App!!!'));
@@ -119,4 +106,4 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;
