@@ -44,16 +44,7 @@ class App extends Component {
   }
 
   render() {
-
-    // can't use pseudo selectors this way
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-    };
+    let btnClass = '';
 
     // handling dynamic content the javascript way
     let persons = null;
@@ -72,9 +63,8 @@ class App extends Component {
             )
           })}
         </div>
-      )
-      // change color of button to red when showPersons = true
-      style.backgroundColor = 'red';
+      );
+      btnClass = styles.Red;
     }
 
     // class names as declared in App.css
@@ -92,7 +82,7 @@ class App extends Component {
         <div className={styles.App}>
           <h1>Hi, I'm a React App</h1>
           <p className={classes.join(' ')}>Watch me dynamically change!</p>
-          <button style={style} onClick={this.togglePersonsHandler}>Toggle</button>
+          <button className={btnClass} onClick={this.togglePersonsHandler}>Toggle</button>
           {persons}
         </div>
     );
