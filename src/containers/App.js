@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './App.css';
-import Person from './Person/Person';
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
 
@@ -44,47 +45,29 @@ class App extends Component {
   }
 
   render() {
-    let btnClass = '';
-
     // handling dynamic content the javascript way
     let persons = null;
     if (this.state.showPersons) {
       persons = (
         <div >
-          {this.state.persons.map((person, idx) => {
-            return (
-              <Person
-                name={person.name}
-                age={person.age}
-                handleDeletePerson={() => this.handleDeletePerson(idx)}
-                key={person.id}
-                handleNameChange={(event) => this.handleNameChange(event, person.id)}
-              />
-            )
-          })}
+          <Persons
+            persons={this.state.persons}
+            handleDeletePerson={this.handleDeletePerson}
+            handleNameChange={this.handleNameChange}
+          />
         </div>
       );
-      btnClass = styles.Red;
-    }
-
-    // class names as declared in App.css
-    // let classes = ['red', 'bold'].join(' '); // => 'red bold'
-
-    let classes = [];
-    if (this.state.persons.length <= 2) {
-      classes.push( styles.red ); // classes = ['red']
-    }
-    if (this.state.persons.length <= 1) {
-      classes.push( styles.bold ); // classes = ['red', 'bold']
     }
 
     return (
-        <div className={styles.App}>
-          <h1>Hi, I'm a React App</h1>
-          <p className={classes.join(' ')}>Watch me dynamically change!</p>
-          <button className={btnClass} onClick={this.togglePersonsHandler}>Toggle</button>
-          {persons}
-        </div>
+      <div className={styles.App}>
+        <Cockpit
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          togglePersonsHandler={this.togglePersonsHandler}
+        />
+        {persons}
+      </div>
     );
 
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi I am a React App!!!'));
