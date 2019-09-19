@@ -1,1 +1,0 @@
-This repository is for learning and practicing React and Redux.
