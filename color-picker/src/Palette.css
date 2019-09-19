@@ -5,31 +5,3 @@
 .Palette-colors {
   height: 90%;
 }
-
-.slider {
-  width: 340px;
-  margin: 0 10px;
-  display: inline-block;
-}
-
-.slider .rc-slider-track {
-  background-color: transparent;
-}
-
-.slider .rc-slider-handle,
-.slider .rc-slider-handle:hover,
-.slider .rc-slider-handle:active,
-.slider .rc-slider-handle:focus {
-  background-color: slateblue;
-  outline: none;
-  border: 2px solid slateblue;
-  box-shadow: none;
-  width: 13px;
-  height: 13px;
-  margin-left: -7px;
-  margin-top: -3px;
-}
-
-.slider .rc-slider-rail {
-  height: 8px;
-}

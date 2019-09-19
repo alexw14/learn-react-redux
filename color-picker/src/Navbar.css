@@ -1,0 +1,53 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 6vh;
+}
+
+.Navbar .logo {
+  margin-right: 15px;
+  padding: 0 13px;
+  font-size: 22px;
+  background-color: #eceff1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Navbar .logo a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.slider {
+  width: 340px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.slider-container .level {
+  margin-right: 10px;
+}
+
+.slider .rc-slider-track {
+  background-color: transparent;
+}
+
+.slider .rc-slider-handle,
+.slider .rc-slider-handle:hover,
+.slider .rc-slider-handle:active,
+.slider .rc-slider-handle:focus {
+  background-color: slateblue;
+  outline: none;
+  border: 2px solid slateblue;
+  box-shadow: none;
+  width: 13px;
+  height: 13px;
+  margin-left: -7px;
+  margin-top: -3px;
+}
+
+.slider .rc-slider-rail {
+  height: 8px;
+}
