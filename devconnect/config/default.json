@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://alexw14:alexw14@devconnector-cytfr.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "lakers"
+  "jwtSecret": "lakers",
+  "githubClientId": "d37b85e61e12b461d9a4",
+  "githubSecret": "428a4f1e5a2c34d6e5c5cca3eee6445b123b5434"
 }
